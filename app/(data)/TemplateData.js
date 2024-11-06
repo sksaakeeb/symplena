@@ -1,9 +1,9 @@
 export const items = [
   {
     id: 1,
-    name: "Blog title",
+    name: "Heart Disease",
     desc: "An AI tool that generates blog title depending on your blog posts",
-    icon: "https://cdn-icons-png.flaticon.com/128/3959/3959542.png",
+    icon: "https://cdn-icons-png.flaticon.com/128/508/508735.png",
     category: "Blog",
     slug: "Generate-blog-title",
     aiPrompt: "Give me 5 blog topic ideas in bullet wise",
