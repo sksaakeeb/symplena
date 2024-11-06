@@ -1,11 +1,12 @@
 import { UserButton } from "@clerk/nextjs";
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
 function Header() {
   return (
     <div>
-      <div className="navbar bg-base-100">
+      <div className="navbar bg-base-100 shadow-md">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -39,7 +40,16 @@ function Header() {
               </li>
             </ul>
           </div>
-          <a className="btn btn-ghost text-xl">daisyUI</a>
+          <Image
+            src={"./logo.svg"}
+            alt=""
+            width={30}
+            height={30}
+            className="ml-3 cursor-pointer"
+          />
+          <Link href={"/dashboard"} className="btn btn-ghost text-2xl">
+            Symplena
+          </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
