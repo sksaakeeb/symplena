@@ -37,7 +37,7 @@ export default function Home() {
   };
 
   return (
-    <div style={{ maxWidth: '600px', margin: '50px auto', fontFamily: 'Arial, sans-serif' }}>
+    <div style={{ maxWidth: '600px', margin: '50px auto', fontFamily: 'Arial, sans-serif', padding: "30px" }}>
       <UserButton />
       <h1 style={{ textAlign: 'center', fontSize: 45 }}>Ai Doctor - Ask YourConcern</h1>
       <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
@@ -66,7 +66,7 @@ export default function Home() {
         </button>
       </form>
       {output && (
-        <div style={{ color: "black", display: 'flex', flexDirection: "row", marginTop: '20px', padding: '10px', border: '1px solid #ddd', borderRadius: '5px', backgroundColor: '#f9f9f9', textAlign: 'center' }}>
+        <div style={{ color: "black",  marginTop: '20px', padding: '10px', border: '1px solid #ddd', borderRadius: '5px', backgroundColor: '#f9f9f9', textAlign: 'center' }}>
           <img 
             src="/ai-doctor-logo.jpg" 
             alt="AI Doctor Logo" 
