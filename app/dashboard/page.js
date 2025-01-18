@@ -12,22 +12,23 @@ export default function Home() {
     e.preventDefault();
     setLoading(true);
     setOutput('');
-  
+
     try {
       const response = await fetch('https://ad34-34-86-29-251.ngrok-free.app/predict', {
         method: 'POST',
         headers: {
-          'Content-Type': 'text/plain', // Set content type to plain text
+          'Content-Type': 'text/plain',
         },
-        body: prompt, // Send the prompt as plain text
+        body: prompt,
       });
-  
+
       if (!response.ok) {
         throw new Error('Error fetching response from the API');
       }
-  
-      const data = await response.text(); // Parse the plain text response
-      setOutput(data || 'No output received from the model'); // Update the output
+
+      const data = await response.text();
+      const cleanedOutput = data.replace(/[{}\[\]"]+/g, '').trim(); // Remove braces, brackets, and quotes
+      setOutput(cleanedOutput || '');
     } catch (error) {
       setOutput(`Error: ${error.message}`);
     } finally {
@@ -37,8 +38,8 @@ export default function Home() {
 
   return (
     <div style={{ maxWidth: '600px', margin: '50px auto', fontFamily: 'Arial, sans-serif' }}>
-      <UserButton/>
-      <h1 style={{ textAlign: 'center' }}>ML Prompt Generator</h1>
+      <UserButton />
+      <h1 style={{ textAlign: 'center', fontSize: 45 }}>Ai Doctor - Ask YourConcern</h1>
       <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
         <textarea
           value={prompt}
@@ -65,9 +66,14 @@ export default function Home() {
         </button>
       </form>
       {output && (
-        <div style={{ marginTop: '20px', padding: '10px', border: '1px solid #ddd', borderRadius: '5px' }}>
-          <h2>Output:</h2>
-          <p>{output}</p>
+        <div style={{ color: "black", display: 'flex', flexDirection: "row", marginTop: '20px', padding: '10px', border: '1px solid #ddd', borderRadius: '5px', backgroundColor: '#f9f9f9', textAlign: 'center' }}>
+          <img 
+            src="/ai-doctor-logo.jpg" 
+            alt="AI Doctor Logo" 
+            style={{ width: '100px', height: '100px', marginBottom: '10px' }}
+          />
+          <h2 style={{ borderBottom: '2px solid #0070f3', paddingBottom: '5px' }}></h2>
+          <p style={{ whiteSpace: 'pre-line', fontSize: '16px', lineHeight: '1.5' }}>{output}</p>
         </div>
       )}
     </div>
