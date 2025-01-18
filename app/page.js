@@ -1,18 +1,15 @@
-import { Cards } from "./components/Cards";
-import { AnimatedTooltipPreview } from "./components/DevelopersSection";
-import Footer from "./components/Footer";
-import Header from "./components/Header";
-import HeroSection from "./components/HeroSection";
+import Link from "next/link";
 
-export default function Home({children}) {
+export default function Home({ children }) {
   return (
-    <div>
-      <Header />
-      <HeroSection />
-      <Cards />
-      <AnimatedTooltipPreview />
-      {children}
-      <Footer />
+    <div className="p-25">
+      <h2 className="text-5xl">Welcome to AI-Doctor</h2>
+      <div className="navbar-end">
+        <br />
+        <Link href={"/dashboard"} className="btn">
+          Get Started
+        </Link>
+      </div>
     </div>
   );
 }
